@@ -1,0 +1,27 @@
+# Contenu du docker-compose.build.yml
+version: '3'
+services:
+  worker:
+    build:
+      context: ./worker
+    networks:
+      - registry-network
+  vote:
+    build:
+      context: ./vote
+    networks:
+      - registry-network
+  seed-data:
+    build:
+      context: ./seed-data
+    networks:
+      - registry-network
+  result:
+    build:
+      context: ./result
+    networks:
+      - registry-network
+
+networks:
+  registry-network:
+    external: true
